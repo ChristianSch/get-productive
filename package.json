@@ -1,0 +1,9 @@
+{
+	"name" : "get-productive",
+	"description" : "find your most productive time of the day",
+	"version" : "0.0.1",
+	"private" : "true",
+	"dependencies" : {
+		"express" : "3.x"
+	}
+}
