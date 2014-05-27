@@ -177,4 +177,5 @@ function listSessions() {
 
 	}).fail(function() {
 		alert("Error while retrieving sessions!");
-});}
+	});
+}
