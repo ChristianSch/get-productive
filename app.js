@@ -26,6 +26,19 @@ app.use(express.urlencoded());
 app.get('/', function (req, res) {
     res.render('home', { title: 'Get Productive!'});
 });
+/* >>>>> API <<<<< */
+app.post('/api/add_session', function(req, res) {
+	Session.addSession(req.param('start'), req.param('end'), function(err) {
+		if (err) throw err;
+	});
+	res.statusCode = 200;
+	res.send(req.body);
+});
+
+app.get('/api/list_sessions', function(req, res) {
+	Session.listSessions(function(items) {
+		res.send(items);
+	});
 });
 
 app.listen(3000);
