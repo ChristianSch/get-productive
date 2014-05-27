@@ -1,12 +1,50 @@
-<div id="timer">
-	<div id="time" class="well">
-		<p class="val">0</val>
-	</div>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#newSession" data-toggle="tab">New Session</a></li>
+	<li><a href="#sessionList" data-toggle="tab" id="sessionListButton">Sessions</a></li>
+</ul>
 
-	<div class="btn-group">
-		<button type="button" class="btn btn-primary">Start</button>
+<!-- Tab panes -->
+<div class="tab-content">
+	<div class="tab-pane fade in active" id="newSession">
+		<div id="timer">
+			<div id="time" class="well">
+				<p id="val">
+					<span id="timerHours">0</span>
+					<span class="timerUnit">hours</span>
+					<span id="timerMinutes">00</span>
+					<span class="timerUnit">min</span>
+					<span id="timerSeconds">00</span>
+					<span class="timerUnit">s</span>
+				</p>
+			</div>
+
+			<div class="align-left">
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary" id="startTimerButton">Start</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-danger" id="stopTimerButton">Stop</button>
+				</div>
+			</div>
+
+			<div class="align-right">
+				<div class="btn-group">
+					<button type="button" class="btn btn-danger" id="resetTimerButton">Reset</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-success" id="saveSessionButton">Save</button>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="btn-group">
-	 	<button type="button" class="btn btn-danger">Stop</button>
+	<div class="tab-pane fade in" id="sessionList">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" id="refreshSessionList">Refresh</button>
+		</div>
+
+		<div id="session-list">
+			<img src="/public/images/loader.gif" alt="" class="ajax-loader">
+		</div>
 	</div>
 </div>

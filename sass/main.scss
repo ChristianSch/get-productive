@@ -21,7 +21,40 @@ body {
 
 .clearfix {
 	clear: both;
-}/* main footer */
+}
+
+img.ajax-loader {
+	margin: 10em auto;
+	display: block;
+}
+
+/* tabs */
+.tab-pane > * {
+	margin: 1em auto;
+}
+/* links */
+a:link {
+	color: $link-color !important;
+}
+/* stopwatch */
+#timer {
+	margin: 1em;
+	div#time p#val {
+		#timerHours, #timerMinutes {
+			font-size: 10em;
+		}
+
+		#timerSeconds {
+			font-size: 3em;
+		}
+
+		span.timerUnits {
+			font-size: 0.5em;
+		}
+	}
+}
+
+/* main footer */
 footer#main-foot {
 	position: absolute;
 	width: 100%;
