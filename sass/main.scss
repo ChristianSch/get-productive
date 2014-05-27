@@ -1,7 +1,24 @@
 @import "mixins";
 
+body {
+	font-size: 14px;
+	height: 100%;
 }
+
 .main-wrap {
 	margin: 0 auto;
 	max-width: 960px;
+}
+
+/* general */
+.align-left {
+	float: left;
+}
+
+.align-right {
+	float: right;
+}
+
+.clearfix {
+	clear: both;
 }
