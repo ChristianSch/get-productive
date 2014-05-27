@@ -2,6 +2,8 @@ var express = require('express'),
 	exphbs  = require('express3-handlebars'),
 	path = require('path');
 
+var Session = require('./models/Session.js');
+
 var app = express();
 
 /* Handlebars Layouts */
