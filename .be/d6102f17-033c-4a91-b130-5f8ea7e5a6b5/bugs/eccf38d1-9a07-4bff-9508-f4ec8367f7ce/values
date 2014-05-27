@@ -1,0 +1,50 @@
+{
+
+
+
+
+
+
+    "creator": "Christian Schulze <christian.schulze@mni.thm.de>", 
+
+
+
+
+
+
+    "reporter": "Christian Schulze <christian.schulze@mni.thm.de>", 
+
+
+
+
+
+
+    "severity": "minor", 
+
+
+
+
+
+
+    "status": "open", 
+
+
+
+
+
+
+    "summary": "when hitting start again after saving a session it can't be saved again: Already saved. Don't panic.", 
+
+
+
+
+
+
+    "time": "Di, 27 Mai 2014 18:29:52 +0000"
+
+
+
+
+
+
+}
