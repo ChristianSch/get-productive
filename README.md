@@ -12,9 +12,12 @@
 		- save session with mongoDB via AJAX (x)
 		- tabbed view with ability to list all saved sessions (x)
 - Backend:
-	- routing of sub-pages ('/routes')
+	- 404 and error pages (x)
+	
+#### 1.1
+- Backend:
+	- organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
 		- ('/api') as module?
-	- 404 and error pages
 
 ### 2nd Milestone
 - AJAXify all POST and GET requests that do not load another view
