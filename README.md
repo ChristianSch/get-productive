@@ -3,7 +3,7 @@
 - set up a basic project and directory structure
 	- bugseverywhere (x)
 - sass support with grunt
-	- add grunt.js
+	- add grunt.js (x)
 
 ### 1st Milestone
 - Frontend:
