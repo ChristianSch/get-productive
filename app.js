@@ -24,7 +24,8 @@ app.use(express.urlencoded());
 
 /* routes */
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('home', { title: 'Get Productive!'});
+});
 });
 
 app.listen(3000);
