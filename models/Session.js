@@ -28,13 +28,7 @@ function listSessions(callback) {
             throw err;
 
         } else {
-            db.collection('sessions').find().toArray(function(err, items) {
-                if (err) {
-                    throw err;
-                } else {
-                    callback(items);
-                }
-            });
+            db.collection('sessions').find().toArray(callback(err, items));
         }
     });
 }
