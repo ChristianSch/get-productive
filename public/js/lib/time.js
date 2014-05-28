@@ -34,3 +34,17 @@ function normalizeTimestamp(stamp) {
 
 	return stamp * (10 ^ (requiredLength - hasLength));
 }
+/**
+ * [isValidDate description]
+ *
+ * @see  http://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
+ * 
+ * @param  {[type]}  d [description]
+ * @return {Boolean}   [description]
+ */
+function isValidDate(d) {
+    if (Object.prototype.toString.call(d) !== "[object Date]") {
+        return false;
+    }
+    return !isNaN(d.getTime());
+}
