@@ -1,11 +1,14 @@
 var express = require('express'),
 	exphbs  = require('express3-handlebars'),
     path = require('path'),
-    timeLib = require('./public/js/lib/time.js');
+    timeLib = require(__dirname + '/public/js/lib/time.js');
 
-var Session = require('./models/Session.js')(process.env.MONGODB_URI, "get-productive");
+var Session = require(__dirname + '/models/Session.js')(process.env.MONGODB_URI, "get-productive");
 
 var app = express();
+
+console.log(__dirname);
+console.log(process.cwd());
 
 /* Handlebars Layouts */
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
