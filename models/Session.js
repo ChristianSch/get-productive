@@ -60,5 +60,6 @@ function listSessions(callback) {
     });
 }
 
-exports.addSession = addSession;
-exports.listSessions = listSessions;module.exports = init;
+module.exports.addSession = addSession;
+module.exports.listSessions = listSessions;
+module.exports = init;
