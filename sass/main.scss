@@ -23,44 +23,44 @@ body {
 	clear: both;
 }
 
-img.ajax-loader {
+.ajax-loader {
 	margin: 10em auto;
 	display: block;
 }
 
 /* tabs */
-.tab-pane > * {
+.tab-pane > div {
 	margin: 1em auto;
 }
 /* links */
 a:link {
-	color: $link-color !important;
+	color: $link-color;
 }
 /* stopwatch */
 .timer {
 	margin: 1em;
 	
 	.timerHours, .timerMinutes {
-			font-size: 10em;
-		}
+		font-size: 10em;
+	}
 
 	.timerSeconds {
-			font-size: 3em;
-		}
+		font-size: 3em;
+	}
 
 	.timerUnits {
-			font-size: 0.5em;
-		}
+		font-size: 0.5em;
+	}
 
 }
 
 /* main footer */
-footer#main-foot {
+.main-foot {
 	position: absolute;
 	width: 100%;
 	margin: 0;
 	margin-top: 40px;
-	margin-bottom: 0 !important;
+	margin-bottom: 0;
 	bottom: 0;
 	padding-top: 40px;
 	padding-bottom: 40px;
