@@ -49,9 +49,11 @@ function dateWithStamp(stamp) {
     return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
 }
 
-exports.minuteDiffWithStamps = minuteDiffWithStamps;
-exports.hoursAndMinutesWithStamp = hoursAndMinutesWithStamp;
-exports.dateWithStamp = dateWithStamp;
-exports.normalizeMinutes = normalizeMinutes;
-exports.normalizeTimestamp = normalizeTimestamp;
-exports.isValidDate = isValidDate;
+(function (exports) {
+    exports.minuteDiffWithStamps = minuteDiffWithStamps;
+    exports.hoursAndMinutesWithStamp = hoursAndMinutesWithStamp;
+    exports.dateWithStamp = dateWithStamp;
+    exports.normalizeMinutes = normalizeMinutes;
+    exports.normalizeTimestamp = normalizeTimestamp;
+    exports.isValidDate = isValidDate;
+} (typeof exports === 'undefined' ? this.shared = {} : exports));
