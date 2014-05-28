@@ -14,22 +14,23 @@
 - Backend:
 	- 404 and error pages (x)
 
-- set up ci
+- set up ci (x)
 	- testing (x)
-	- deployment
+	- deployment (x)
 	
 #### 1.1
 - Backend:
 	- testing
-		- lib (time.js)
+		- lib (time.js) (x)
 		- api
 	- organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
 		- ('/api') as module?
-- mongodb url in config depending on evironment `process.env.NODE_ENV`, `process.env.MONGODB_URL
-- validation in Session.js when the mondod instance is down
+- mongodb url in config depending on evironment `process.env.NODE_ENV`, `process.env.MONGODB_URL` (x)
+- validation in Session.js when the mongod instance is down (?)
 
 ### 2nd Milestone
 - AJAXify all POST and GET requests that do not load another view
+- beatify alerts to modal windows or something like that
 - User support
 	- validation of data submitted by a form (user/mail exists etc.)
 	- passport support (https://github.com/jaredhanson/passport)
@@ -51,4 +52,3 @@
 	- sauce lab
 	- chai?
 	- http://sinonjs.org/
-- onDeploy: add last commit id to <footer> or smth?
