@@ -29,14 +29,19 @@ describe('normalizeTimestamp', function() {
 });
 
 describe('minuteDiffWithStamps', function() {
+	var timestamp = new Date().getTime();
+
 	it('should return 5', function() {
-		expect(timeLib.minuteDiffWithStamps(new Date().getTime(), new Date().getTime() - (5 * 60 * 1000))).to.equal(5);
+		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp - (5 * 60 * 1000))).to.equal(5);
 	});
 	it('should return 5', function() {
-		expect(timeLib.minuteDiffWithStamps(new Date().getTime() - (5 * 60 * 1000), new Date().getTime())).to.equal(5);
+		expect(timeLib.minuteDiffWithStamps(timestamp - (5 * 60 * 1000), timestamp)).to.equal(5);
+	});
+	it('should equal', function() {
+		assert.equal(timeLib.minuteDiffWithStamps(timestamp - (5 * 60 * 1000), timestamp),
+			timeLib.minuteDiffWithStamps(timestamp, timestamp - (5 * 60 * 1000)));
 	});
 	it('should return 0', function() {
-		var timestamp = new Date().getTime();
 		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp)).to.equal(0);
 	});
 });
