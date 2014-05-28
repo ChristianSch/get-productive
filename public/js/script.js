@@ -10,7 +10,7 @@ var sessionIsSaved = false;
 var startStamp = 0;
 var endStamp = 0;
 
-var debug = true;
+var debug = false;
 
 $( document ).ready(function() {
     document.getElementById('startTimerButton').onclick = startTimer;
@@ -96,16 +96,15 @@ function postNewSession(startTime, endTime) {
 
     }).done(function(response) {
         sessionIsSaved = true;
-        alert("Session successfully saved.");
 
-    }).fail(function(response) {
-        alert( "Error while saving session. Try it later.");
-        if (debug) console.log(response.responseText);
+    }).fail(function() {
+        /* TODO: save in local storage for later saving */
+        alert("Error while saving session. Try it later.");
     });
 }
 
 function saveSession() {
-    if (sessionIsSaved !== true) {
+    if (!sessionIsSaved) {
         if (startStamp !== 0) {
             if (timerIsOn === true) {
                 stopTimer();
@@ -175,7 +174,6 @@ function listSessions() {
         document.getElementById('session-list').innerHTML = content;
 
     }).fail(function(response) {
-        if (!debug) alert("Error while retrieving sessions!");
-        else console.log(response.responseText);
+        if (debug) console.log(response.responseText);
     });
 }
