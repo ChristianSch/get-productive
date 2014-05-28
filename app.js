@@ -17,9 +17,6 @@ app.enable('view cache');
 /* static stuff like css, js with static middleware */
 app.use("/public", express.static(__dirname + '/public'));
 
-/* error handling */
-// TODO
-
 /* form data parsing from post request */
 app.use(express.urlencoded());
 
