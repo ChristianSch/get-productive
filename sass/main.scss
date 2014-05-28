@@ -37,21 +37,21 @@ a:link {
 	color: $link-color !important;
 }
 /* stopwatch */
-#timer {
+.timer {
 	margin: 1em;
-	div#time p#val {
-		#timerHours, #timerMinutes {
+	
+	.timerHours, .timerMinutes {
 			font-size: 10em;
 		}
 
-		#timerSeconds {
+	.timerSeconds {
 			font-size: 3em;
 		}
 
-		span.timerUnits {
+	.timerUnits {
 			font-size: 0.5em;
 		}
-	}
+
 }
 
 /* main footer */
