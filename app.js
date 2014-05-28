@@ -7,9 +7,6 @@ var Session = require(__dirname + '/models/Session.js')(process.env.MONGODB_URI,
 
 var app = express();
 
-console.log(__dirname);
-console.log(__dirname + '/views');
-
 /* Handlebars Layouts */
 app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts'}));
 app.set('view engine', 'handlebars');
