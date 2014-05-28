@@ -8,9 +8,9 @@ var Session = require('./models/Session.js')(process.env.MONGODB_URI, "get-produ
 var app = express();
 
 /* Handlebars Layouts */
-app.use('views', __dirname + "/views");
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.set('views', __dirname + '/views');
 
 /* Caching in productive environment */
 app.enable('view cache');
