@@ -16,8 +16,12 @@
 	
 #### 1.1
 - Backend:
+	- testing
+		- lib (time.js)
+		- api
 	- organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
 		- ('/api') as module?
+- mongodb url in config depending on evironment `process.env.NODE_ENV`, `process.env.MONGODB_URL
 
 ### 2nd Milestone
 - AJAXify all POST and GET requests that do not load another view
@@ -35,3 +39,10 @@
 	- save session in HTML5 storage when save failed
 		-> http://www.w3schools.com/html/html5_webstorage.asp
 		-> localStorage.removeItem('UserName');
+
+## Nirvana
+- Browser testing
+	- Selenium (http://docs.seleniumhq.org)
+	- chai?
+	- http://sinonjs.org/
+- onDeploy: add last commit id to <footer> or smth?
