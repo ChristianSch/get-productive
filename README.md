@@ -48,6 +48,7 @@
 ## Nirvana
 - Browser testing
 	- Selenium (http://docs.seleniumhq.org)
+	- sauce lab
 	- chai?
 	- http://sinonjs.org/
 - onDeploy: add last commit id to <footer> or smth?
