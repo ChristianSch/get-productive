@@ -43,8 +43,15 @@ app.post('/api/add_session', function(req, res) {
 });
 
 app.get('/api/list_sessions', function(req, res) {
-	Session.listSessions(function(items) {
+    Session.listSessions(function(err, items) {
+        if (err) {
+            console.log(err); // throw err
+            res.statusCode = 500;
+        } else {
+            console.log(items);
+            res.statusCode = 200;
 		res.send(items);
+        }
 	});
 });
 
