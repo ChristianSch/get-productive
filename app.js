@@ -11,7 +11,7 @@ console.log(__dirname);
 console.log(__dirname + '/views');
 
 /* Handlebars Layouts */
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts'}));
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
 
