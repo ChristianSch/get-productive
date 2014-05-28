@@ -1,5 +1,5 @@
 var express = require('express'),
-	exphbs  = require('express3-handlebars'),
+    exphbs  = require('express3-handlebars'),
     path = require('path'),
     timeLib = require(__dirname + '/public/js/lib/time.js');
 
@@ -36,11 +36,10 @@ app.post('/api/add_session', function(req, res) {
             if (err) {
                 console.log(err);
                 res.statusCode = 500;
-                return;
 
             } else {
-	res.statusCode = 200;
-	res.send(req.body);
+                res.statusCode = 200;
+                res.send(req.body);
             }
         });
 
@@ -58,49 +57,49 @@ app.get('/api/list_sessions', function(req, res) {
 
         } else {
             res.statusCode = 200;
-		res.send(items);
+        res.send(items);
         }
-	});
+    });
 });
 
 /* >>>>> error handling <<<<< */
 // see: https://github.com/visionmedia/express/blob/master/examples/error-pages/index.js
 
-app.get('/404', function(req, res, next){
-  // trigger a 404 since no other middleware
-  // will match /404 after this one, and we're not
-  // responding here
+app.get('/404', function(req, res, next) {
+    // trigger a 404 since no other middleware
+    // will match /404 after this one, and we're not
+    // responding here
   next();
 });
 
 app.get('/403', function(req, res, next){
-  // trigger a 403 error
-  var err = new Error('not allowed!');
-  err.status = 403;
-  next(err);
+    // trigger a 403 error
+    var err = new Error('not allowed!');
+    err.status = 403;
+    next(err);
 });
 
 app.get('/500', function(req, res, next){
-  // trigger a generic (500) error
-  next(new Error('keyboard cat!'));
+    // trigger a generic (500) error
+    next(new Error('keyboard cat!'));
 });
 
 app.use(function(req, res, next){
-  res.status(404);
+    res.status(404);
 
-  // respond with html page
-  if (req.accepts('html')) {
-    res.render('error', { title: "404 - Not found", error: "Not found: '" + req.url + "'.", error_num: 404 });
-    return;
-  }
+    // respond with html page
+    if (req.accepts('html')) {
+        res.render('error', { title: "404 - Not found", error: "Not found: '" + req.url + "'.", error_num: 404 });
+        return;
+    }
 
-  // respond with json
-  if (req.accepts('json')) {
-        res.send({ error: 'Not found: ' + req.url });
-    return;
-  }
+    // respond with json
+    if (req.accepts('json')) {
+       res.send({ error: 'Not found: ' + req.url });
+        return;
+    }
 
-  // default to plain-text. send()
+    // default to plain-text. send()
     res.type('txt').send('Not found: ' + req.url);
 });
 
@@ -117,11 +116,11 @@ app.use(function(req, res, next){
 // we simply respond with an error page.
 
 app.use(function(err, req, res, next){
-  // we may use properties of the error object
-  // here and next(err) appropriately, or if
-  // we possibly recovered from the error, simply next().
-  res.status(err.status || 500);
-  res.render('error', { error: err, error_num: 500 });
+    // we may use properties of the error object
+    // here and next(err) appropriately, or if
+    // we possibly recovered from the error, simply next().
+    res.status(err.status || 500);
+    res.render('error', { error: err, error_num: 500 });
 });
 
 
