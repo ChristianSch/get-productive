@@ -13,6 +13,10 @@
 		- tabbed view with ability to list all saved sessions (x)
 - Backend:
 	- 404 and error pages (x)
+
+- set up ci
+	- testing (x)
+	- deployment
 	
 #### 1.1
 - Backend:
