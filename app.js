@@ -1,6 +1,7 @@
 var express = require('express'),
 	exphbs  = require('express3-handlebars'),
-	path = require('path');
+    path = require('path'),
+    timeLib = require('./public/js/lib/time.js');
 
 var Session = require('./models/Session.js');
 
@@ -28,11 +29,20 @@ app.get('/', function (req, res) {
 });
 /* >>>>> API <<<<< */
 app.post('/api/add_session', function(req, res) {
-	Session.addSession(req.param('start'), req.param('end'), function(err) {
+    var start = req.param('start');
+    var end = req.param('end');
+
+    if (timeLib.isValidDate(parseInt(start)) && timeLib.isValidDate(parseInt(end))) {
+        Session.addSession(start, end, function(err) {
 		if (err) throw err;
 	});
 	res.statusCode = 200;
 	res.send(req.body);
+
+    } else {
+        res.statusCode = 400;
+        res.send(req.body);
+    }
 });
 
 app.get('/api/list_sessions', function(req, res) {
