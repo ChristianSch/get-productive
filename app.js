@@ -53,7 +53,7 @@ app.post('/api/add_session', function(req, res) {
 app.get('/api/list_sessions', function(req, res) {
     Session.listSessions(function(err, items) {
         if (err) {
-            res.statusCode = 400;
+            res.statusCode = 500;
             console.log(err.message);
 
         } else {
