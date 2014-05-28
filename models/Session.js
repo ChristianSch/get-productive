@@ -52,10 +52,12 @@ function listSessions(callback) {
 
     MongoClient.connect(mongodb_uri + mongodb_database, function(err, db) {
         if (err) {
-            throw err;
+            callback(err, null);
 
         } else {
-            db.collection('sessions').find().toArray(callback(err, items));
+            db.collection('sessions').find().toArray(function(err, items) {
+                callback(err, items);
+            });
         }
     });
 }
