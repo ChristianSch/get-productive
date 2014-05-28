@@ -31,18 +31,11 @@ function addSession(start_time, end_time, callback) {
     MongoClient.connect(mongodb_uri + mongodb_database, function(err, db) {
         if (err) {
             callback(err);
-            return;
 
         } else {
-            db.collection('sessions').insert({
-                start: start_time,
-                end: end_time
-            }, function(err, records) {
-                if (err) {
-                    callback(err);
-                    return;
-                }
-            });
+            db.collection('sessions').insert({ start: start_time, end: end_time },
+                function(err, records) { callback(err); }
+            );
         }
     });
 }

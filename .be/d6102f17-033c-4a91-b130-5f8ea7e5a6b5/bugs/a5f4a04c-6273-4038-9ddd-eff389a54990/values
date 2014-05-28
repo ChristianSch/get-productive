@@ -1,0 +1,50 @@
+{
+
+
+
+
+
+
+    "creator": "Christian Schulze <christian.schulze@mni.thm.de>", 
+
+
+
+
+
+
+    "reporter": "Christian Schulze <christian.schulze@mni.thm.de>", 
+
+
+
+
+
+
+    "severity": "minor", 
+
+
+
+
+
+
+    "status": "open", 
+
+
+
+
+
+
+    "summary": "ajax request is open way longer than the actual transmission!", 
+
+
+
+
+
+
+    "time": "Mi, 28 Mai 2014 20:41:18 +0000"
+
+
+
+
+
+
+}
