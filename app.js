@@ -34,15 +34,15 @@ app.post('/api/add_session', function(req, res) {
         timeLib.isValidDate(new Date(parseInt(end)))) {
         Session.addSession(start, end, function(err) {
             if (err) {
-                console.log(err); // throw err;
+                console.log(err);
                 res.statusCode = 500;
-                res.send(err); // TESTING
                 return;
-            }
-	});
 
+            } else {
 	res.statusCode = 200;
 	res.send(req.body);
+            }
+        });
 
     } else {
         res.statusCode = 400;
