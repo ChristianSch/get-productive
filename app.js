@@ -3,7 +3,7 @@ var express = require('express'),
     path = require('path'),
     timeLib = require('./public/js/lib/time.js');
 
-var Session = require('./models/Session.js');
+var Session = require('./models/Session.js')(process.env.MONGODB_URI, "get-productive");
 
 var app = express();
 
