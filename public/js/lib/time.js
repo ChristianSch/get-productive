@@ -33,7 +33,7 @@ function isValidDate(d) {
 function minuteDiffWithStamps(stamp1, stamp2) {
     var date1 = new Date(normalizeTimestamp(stamp1));
     var date2 = new Date(normalizeTimestamp(stamp2));
-    
+
     return Math.abs(parseInt(date1.getMinutes() - date2.getMinutes()));
 }
 
