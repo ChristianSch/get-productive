@@ -48,10 +48,10 @@ function startTimer() {
             redrawTime();
         }, 1000);
 
-        if (debug === true) alert('start timer');
+        if (debug) console.log('start timer');
 
     } else {
-        if (debug === true) alert('timer already started!');
+        if (debug) console.log('timer already started!');
     }
 }
 
@@ -61,10 +61,10 @@ function stopTimer() {
         timerIsOn = false;
         clearInterval(timer);
 
-        if (debug === true) alert('stop timer: ' + timerHours + ":" + timerMinutes + ":" + timerSeconds);
+        if (debug) console.log('stop timer: ' + timerHours + ":" + timerMinutes + ":" + timerSeconds);
 
     } else {
-        if (debug === true) alert('timer not running');
+        if (debug) console.log('timer not running');
     }
 }
 
@@ -84,7 +84,7 @@ function resetTimer() {
 
     redrawTime();
 
-    if (debug === true) alert('reset timer');
+    if (debug === true) console.log('reset timer');
 }
 
 function postNewSession(startTime, endTime) {
@@ -98,8 +98,9 @@ function postNewSession(startTime, endTime) {
         sessionIsSaved = true;
         alert("Session successfully saved.");
 
-    }).fail(function() {
-        alert( "Error while saving session. Try it later." );
+    }).fail(function(response) {
+        alert( "Error while saving session. Try it later.");
+        if (debug) console.log(response.responseText);
     });
 }
 
@@ -174,6 +175,7 @@ function listSessions() {
         document.getElementById('session-list').innerHTML = content;
 
     }).fail(function() {
-        alert("Error while retrieving sessions!");
+        if (!debug) alert("Error while retrieving sessions!");
+        else console.log(response.responseText);
     });
 }
