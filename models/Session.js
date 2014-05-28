@@ -50,7 +50,7 @@ function addSession(start_time, end_time, callback) {
 function listSessions(callback) {
     var MongoClient = require('mongodb').MongoClient;
 
-    MongoClient.connect("mongodb://127.0.0.1:27017/get-productive", function(err, db) {
+    MongoClient.connect(mongodb_uri + mongodb_database, function(err, db) {
         if (err) {
             throw err;
 
