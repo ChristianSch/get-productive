@@ -16,35 +16,35 @@ body {
 .clearfix {
   clear: both; }
 
-img.ajax-loader {
+.ajax-loader {
   margin: 10em auto;
   display: block; }
 
 /* tabs */
-.tab-pane > * {
+.tab-pane > div {
   margin: 1em auto; }
 
 /* links */
 a:link {
-  color: "#00B3BA" !important; }
+  color: #00B3BA; }
 
 /* stopwatch */
-#timer {
+.timer {
   margin: 1em; }
-  #timer div#time p#val #timerHours, #timer div#time p#val #timerMinutes {
+  .timer .timerHours, .timer .timerMinutes {
     font-size: 10em; }
-  #timer div#time p#val #timerSeconds {
+  .timer .timerSeconds {
     font-size: 3em; }
-  #timer div#time p#val span.timerUnits {
+  .timer .timerUnits {
     font-size: 0.5em; }
 
 /* main footer */
-footer#main-foot {
+.main-foot {
   position: absolute;
   width: 100%;
   margin: 0;
   margin-top: 40px;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   bottom: 0;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -52,5 +52,5 @@ footer#main-foot {
   background-color: #eee;
   border-top: 1px solid #ccc;
   color: #888; }
-  footer#main-foot p {
+  .main-foot p {
     text-align: center; }
