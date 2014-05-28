@@ -22,6 +22,7 @@
 	- organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
 		- ('/api') as module?
 - mongodb url in config depending on evironment `process.env.NODE_ENV`, `process.env.MONGODB_URL
+- validation in Session.js when the mondod instance is down
 
 ### 2nd Milestone
 - AJAXify all POST and GET requests that do not load another view
