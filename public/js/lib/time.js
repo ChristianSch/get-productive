@@ -34,6 +34,7 @@ function normalizeTimestamp(stamp) {
 
 	return stamp * (10 ^ (requiredLength - hasLength));
 }
+
 /**
  * [isValidDate description]
  *
@@ -48,3 +49,10 @@ function isValidDate(d) {
     }
     return !isNaN(d.getTime());
 }
+
+exports.minuteDiffWithStamps = minuteDiffWithStamps;
+exports.hoursAndMinutesWithStamp = hoursAndMinutesWithStamp;
+exports.dateWithStamp = dateWithStamp;
+exports.normalizeMinutes = normalizeMinutes;
+exports.normalizeTimestamp = normalizeTimestamp;
+exports.isValidDate = isValidDate;
