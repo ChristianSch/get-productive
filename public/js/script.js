@@ -174,7 +174,7 @@ function listSessions() {
 
         document.getElementById('session-list').innerHTML = content;
 
-    }).fail(function() {
+    }).fail(function(response) {
         if (!debug) alert("Error while retrieving sessions!");
         else console.log(response.responseText);
     });
