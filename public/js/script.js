@@ -13,169 +13,167 @@ var endStamp = 0;
 var debug = true;
 
 $( document ).ready(function() {
-	document.getElementById('startTimerButton').onclick = startTimer;
-	document.getElementById('stopTimerButton').onclick = stopTimer;
-	document.getElementById('resetTimerButton').onclick = resetTimer;
-	document.getElementById('saveSessionButton').onclick = saveSession;
+    document.getElementById('startTimerButton').onclick = startTimer;
+    document.getElementById('stopTimerButton').onclick = stopTimer;
+    document.getElementById('resetTimerButton').onclick = resetTimer;
+    document.getElementById('saveSessionButton').onclick = saveSession;
 
-	document.getElementById('sessionListButton').onclick = listSessions;
-	document.getElementById('refreshSessionList').onclick = listSessions;
+    document.getElementById('sessionListButton').onclick = listSessions;
+    document.getElementById('refreshSessionList').onclick = listSessions;
 });
 
-/*
-	Timer methods
- */
+/* Timer methods */
 function startTimer() {
-	startStamp = new Date().getTime();
-	if (timerIsOn !== true) {
-		timerIsOn = true;
-		timer = setInterval(function() {
-			if (timerSeconds === 59) {
-				if (timerMinutes === 59) {
-					/* one hour more */
-					timerHours++;
-					timerMinutes = 0;
-					timerSeconds = 0;
+    startStamp = new Date().getTime();
+    if (timerIsOn !== true) {
+        timerIsOn = true;
+        timer = setInterval(function() {
+            if (timerSeconds === 59) {
+                if (timerMinutes === 59) {
+                    /* one hour more */
+                    timerHours++;
+                    timerMinutes = 0;
+                    timerSeconds = 0;
 
-				} else {
-					/* just one minute more */
-					timerMinutes++;
-					timerSeconds = 0;
-				}
+                } else {
+                    /* just one minute more */
+                    timerMinutes++;
+                    timerSeconds = 0;
+                }
 
-			} else {
-				timerSeconds++;
-			}
+            } else {
+                timerSeconds++;
+            }
 
-			redrawTime();
-		}, 1000);
+            redrawTime();
+        }, 1000);
 
-		if (debug === true) alert('start timer');
+        if (debug === true) alert('start timer');
 
-	} else {
-		if (debug === true) alert('timer already started!');
-	}
+    } else {
+        if (debug === true) alert('timer already started!');
+    }
 }
 
 function stopTimer() {
-	if (timerIsOn === true) {
-		endStamp = new Date().getTime();
-		timerIsOn = false;
-		clearInterval(timer);
+    if (timerIsOn === true) {
+        endStamp = new Date().getTime();
+        timerIsOn = false;
+        clearInterval(timer);
 
-		if (debug === true) alert('stop timer: ' + timerHours + ":" + timerMinutes + ":" + timerSeconds);
+        if (debug === true) alert('stop timer: ' + timerHours + ":" + timerMinutes + ":" + timerSeconds);
 
-	} else {
-		if (debug === true) alert('timer not running');
-	}
+    } else {
+        if (debug === true) alert('timer not running');
+    }
 }
 
 function resetTimer() {
-	if (timerIsOn === true) {
-		timerIsOn = false;
-		clearInterval(timer);
-	}
+    if (timerIsOn === true) {
+        timerIsOn = false;
+        clearInterval(timer);
+    }
 
-	sessionIsSaved = 
+    sessionIsSaved = 
 
-	startStamp = 0;
-	endStamp = 0;
-	timerHours = 0;
-	timerMinutes = 0;
-	timerSeconds = 0;
+    startStamp = 0;
+    endStamp = 0;
+    timerHours = 0;
+    timerMinutes = 0;
+    timerSeconds = 0;
 
-	redrawTime();
+    redrawTime();
 
-	if (debug === true) alert('reset timer');
+    if (debug === true) alert('reset timer');
 }
 
 function postNewSession(startTime, endTime) {
-	var jqxhr = $.ajax({
-		type: "POST",
-		url: "/api/add_session",
-		dataType: "json",
-		data: { start: startTime, end: endTime }
+    var jqxhr = $.ajax({
+        type: "POST",
+        url: "/api/add_session",
+        dataType: "json",
+        data: { start: startTime, end: endTime }
 
-	}).done(function(response) {
-		sessionIsSaved = true;
-    	alert("Session successfully saved.");
+    }).done(function(response) {
+        sessionIsSaved = true;
+        alert("Session successfully saved.");
 
-  	}).fail(function() {
-    	alert( "Error while saving session. Try it later." );
-  	});
+    }).fail(function() {
+        alert( "Error while saving session. Try it later." );
+    });
 }
 
 function saveSession() {
-	if (sessionIsSaved !== true) {
-		if (startStamp !== 0) {
-			if (timerIsOn === true) {
-				stopTimer();
-			}
+    if (sessionIsSaved !== true) {
+        if (startStamp !== 0) {
+            if (timerIsOn === true) {
+                stopTimer();
+            }
 
-			postNewSession(startStamp, endStamp);
+            postNewSession(startStamp, endStamp);
 
-		} else {
-			alert("Nothing to save.");
-		}
+        } else {
+            alert("Nothing to save.");
+        }
 
-	} else {
-		alert('Already saved. Don\'t panic.');
-	}
+    } else {
+        alert('Already saved. Don\'t panic.');
+    }
 }
 
 function redrawTime() {
-	document.getElementById('timerHours').innerHTML = timerHours;
-	document.getElementById('timerMinutes').innerHTML = normalizeMinutes(timerMinutes);
-	document.getElementById('timerSeconds').innerHTML = normalizeMinutes(timerSeconds);
+    document.getElementById('timerHours').innerHTML = timerHours;
+    document.getElementById('timerMinutes').innerHTML = normalizeMinutes(timerMinutes);
+    document.getElementById('timerSeconds').innerHTML = normalizeMinutes(timerSeconds);
 }
 
 /* list sessions */
 function listSessions() {
-	var jqxhr = $.ajax({
-		type: "GET",
-		url: "/api/list_sessions"
-	}).done(function(response) {
-		var sessionCount = response.length;
-		var i = 0;
-		var content = "";
-		var startStamp = 0;
-		var endStamp = 0;
+    var jqxhr = $.ajax({
+        type: "GET",
+        url: "/api/list_sessions"
+    }).done(function(response) {
+        var sessionCount = response.length;
+        var i = 0;
+        var content = "";
+        var startStamp = 0;
+        var endStamp = 0;
 
-		if (sessionCount > 0) {
-			content += '<ul class="list-group">';
+        if (sessionCount > 0) {
+            content += '<ul class="list-group">';
 
-			for (i = 0; i < sessionCount; i++) {
-				startStamp = parseInt(response[i].start);
-				endStamp = parseInt(response[i].end);
+            for (i = 0; i < sessionCount; i++) {
+                startStamp = parseInt(response[i].start);
+                endStamp = parseInt(response[i].end);
 
-				content += '<li class="list-group-item">';
+                content += '<li class="list-group-item">';
 
-				content += '<b>' + minuteDiffWithStamps(startStamp, endStamp) + ' min</b>';
+                content += '<b>' + minuteDiffWithStamps(startStamp, endStamp) + ' min</b>';
 
-				content += '<span class="align-right">';
+                content += '<span class="align-right">';
 
-				content += '<em>' + hoursAndMinutesWithStamp(startStamp) + '</em>';
-				content += ' — ';
-				content += '<em>' + hoursAndMinutesWithStamp(endStamp) + '</em>';
+                content += '<em>' + hoursAndMinutesWithStamp(startStamp) + '</em>';
+                content += ' — ';
+                content += '<em>' + hoursAndMinutesWithStamp(endStamp) + '</em>';
 
-				content += ', ';
+                content += ', ';
 
-				content += '<em>' + dateWithStamp(startStamp) + '</em>';
+                content += '<em>' + dateWithStamp(startStamp) + '</em>';
 
-				content += '</span>';
+                content += '</span>';
 
-				content += '</li>';
-			}
+                content += '</li>';
+            }
 
-			content += '</ul>';
+            content += '</ul>';
 
-		} else {
-			content = '<div class="alert alert-warning">No sessions! Try adding one now.</div>';
-		}
+        } else {
+            content = '<div class="alert alert-warning">No sessions! Try adding one now.</div>';
+        }
 
-		document.getElementById('session-list').innerHTML = content;
+        document.getElementById('session-list').innerHTML = content;
 
-	}).fail(function() {
-		alert("Error while retrieving sessions!");
-	});
+    }).fail(function() {
+        alert("Error while retrieving sessions!");
+    });
 }
