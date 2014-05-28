@@ -74,7 +74,7 @@ function resetTimer() {
         clearInterval(timer);
     }
 
-    sessionIsSaved = 
+    sessionIsSaved = false;
 
     startStamp = 0;
     endStamp = 0;
