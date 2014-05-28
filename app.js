@@ -54,7 +54,7 @@ app.get('/api/list_sessions', function(req, res) {
     Session.listSessions(function(err, items) {
         if (err) {
             res.statusCode = 400;
-            res.send(err.message); // TESTING
+            console.log(err.message);
 
         } else {
             res.statusCode = 200;
