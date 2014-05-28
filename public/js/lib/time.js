@@ -1,16 +1,18 @@
 function normalizeMinutes(mins) {
     if (mins < 10) {
         return '0' + mins;
-    } else {
-        return mins;
     }
+    return mins;
 }
 
 function normalizeTimestamp(stamp) {
     var requiredLength = new Date().getTime().toString().length;
     var hasLength = stamp.toString().length;
+    var out;
 
-    return stamp * (10 ^ (requiredLength - hasLength));
+    if (requiredLength == hasLength) { return stamp; }
+
+    return Math.abs(parseInt(stamp * (10 ^ (requiredLength - hasLength))));
 }
 
 /**
