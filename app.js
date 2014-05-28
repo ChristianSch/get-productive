@@ -29,26 +29,33 @@ app.post('/api/add_session', function(req, res) {
     var start = req.param('start');
     var end = req.param('end');
 
-    if (timeLib.isValidDate(parseInt(start)) && timeLib.isValidDate(parseInt(end))) {
+    if (timeLib.isValidDate(new Date(parseInt(start))) &&
+        timeLib.isValidDate(new Date(parseInt(end)))) {
         Session.addSession(start, end, function(err) {
-		if (err) throw err;
+            if (err) {
+                console.log(err); // throw err;
+                res.statusCode = 500;
+                res.send(err); // TESTING
+                return;
+            }
 	});
+
 	res.statusCode = 200;
 	res.send(req.body);
 
     } else {
         res.statusCode = 400;
-        res.send(req.body);
+        res.send("Invalid time");
     }
 });
 
 app.get('/api/list_sessions', function(req, res) {
     Session.listSessions(function(err, items) {
         if (err) {
-            console.log(err); // throw err
-            res.statusCode = 500;
+            res.statusCode = 400;
+            res.send(err.message); // TESTING
+
         } else {
-            console.log(items);
             res.statusCode = 200;
 		res.send(items);
         }
