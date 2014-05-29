@@ -5,6 +5,22 @@ module.exports = function(grunt) {
             scss: './sass',
             css: './public/stylesheets/',
         },
+        jshint: {
+            src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js']
+        },
+
+        jsbeautifier: {
+            beautify: {
+                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js']
+            },
+            check: {
+                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js'],
+                options: {
+                    mode: 'VERIFY_ONLY'
+                }
+            }
+        },
+
         sass: {
             admin: {
                 files: {
@@ -16,13 +32,16 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: './sass/**/*.scss',
-                tasks: [ 'sass:admin' ]
+                tasks: ['sass:admin']
             }
         }
     });
 
-    grunt.loadNpmTasks( 'grunt-sass' );
-    grunt.loadNpmTasks( 'grunt-contrib-watch' );
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
 
-    grunt.registerTask( 'default', ['sass:admin'] );
+    grunt.registerTask('default', ['jshint', 'jsbeautifier:check', 'sass:admin']);
+    grunt.registerTask('beautify', ['jsbeautifier:beautify']);
 };
