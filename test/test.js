@@ -35,6 +35,8 @@ describe('open mongodb', function() {
 		assert.notEqual(db, null, "db should not be null");
 		assert.equal(db.databaseName, "get-productive");
 
+		db.close();
+
 		done();
 	}));
 });
