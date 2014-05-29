@@ -29,6 +29,7 @@
 - validation in Session.js when the mongod instance is down (?)
 
 ### 2nd Milestone
+- group sessions after date
 - AJAXify all POST and GET requests that do not load another view (?)
 - beatify alerts to modal windows or something like that
 - organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
@@ -54,3 +55,4 @@
 	- sauce lab
 	- chai?
 	- http://sinonjs.org/
+- more testing: https://github.com/visionmedia/express/tree/master/test
