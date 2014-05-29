@@ -19,7 +19,7 @@ describe('POST /api/add_session', function() {
 describe('GET /api/list_sessions', function() {
     it('response with valid JSON', function(done) {
         request(app)
-        .get('/api/list_sessions')
-        .expect(200, done);
+            .get('/api/list_sessions')
+            .expect(200, done);
     });
 });
