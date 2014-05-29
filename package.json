@@ -20,6 +20,7 @@
 		"mocha-steps": "~0.0.1",
 		"mocha-mongo": "~0.1.1",
 		"supertest": "~0.13.0",
-		"chai": "~1.9.1"
+		"chai": "~1.9.1",
+		"w3c-validate": "*"
 	}
 }

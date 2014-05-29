@@ -12,10 +12,10 @@ module.exports = function(grunt) {
 
         jsbeautifier: {
             beautify: {
-                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js']
+                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js', 'test/*.js']
             },
             check: {
-                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js'],
+                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js', 'test/*.js'],
                 options: {
                     mode: 'VERIFY_ONLY'
                 }
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
                 tasks: ['sass:admin']
             },
             js: {
-                files: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js'],
+                files: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js', 'test/*.js'],
                 tasks: ['jshint']
             }
         }

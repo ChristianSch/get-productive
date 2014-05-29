@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Get Productive! Measure your focused working sessions and know the best time to work.">
+    <meta name="keywords" content="productivity,get-productive,measure,time,focus,work,session">
+    <meta name="author" content="Christian Schulze">
+
 
     <!-- Bootstrap -->
     <link href="public/stylesheets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -11,46 +16,51 @@
 	<!-- main style -->
 	<link rel="stylesheet" media="screen" href="public/stylesheets/main.css">
 
+	<!-- jQuery -->
+	<script src="public/js/vendor/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8" defer></script>
+
+	<!-- Modernizr -->
+	<script src="public/js/vendor/modernizr.js" type="text/javascript" charset="utf-8" defer></script>
+
     <title>{{ title }}</title>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-<div class="main-wrap">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="main-wrap">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="/">Start</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Register Now!</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
 		</div>
+	</nav>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="/">Start</a></li>
-			</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Register Now!</a></li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-	</div>
-</nav>
-
-	<div class="main-wrap">
+	<div class="main-wrap clearfix">
     	{{{body}}}
     </div>
 
-    <footer class="main-foot" class="clearfix">
-    	<div class="main-wrap">
+    <footer class="main-foot clearfix">
+    	<div class="content-wrap">
     		<p>&copy; by Christian Schulze, 2014 — <a href="andinfinity.de" title="andinfinity.de">andinfinity.de</a></p>
     	</div>
-	  	<!-- Bootstrap and jQuery -->
-	    <script src="public/js/vendor/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8" defer></script>
+	  	<!-- Bootstrap -->
 	    <script src="public/js/vendor/bootstrap/bootstrap.min.js" type="text/javascript" charset="utf-8" async defer></script>
 
 	    <!-- GP js -->
