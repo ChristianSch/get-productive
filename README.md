@@ -45,6 +45,7 @@
 	- beatify UI
 		- circled countdown (seconds displayed with border)
 			-> http://www.jqueryscript.net/time-clock/Modern-Circular-jQuery-Countdown-Timer-Plugin-Final-Countdown.html
+			- svg? (http://raphaeljs.com)
 	- save session in HTML5 storage when save failed
 		-> http://www.w3schools.com/html/html5_webstorage.asp
 		-> localStorage.removeItem('UserName');
