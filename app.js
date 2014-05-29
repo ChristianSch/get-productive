@@ -5,7 +5,7 @@ var express = require('express'),
 
 var Session = require(__dirname + '/models/Session.js')(process.env.MONGODB_URI, "get-productive");
 
-var app = express();
+var app = exports.app = express();
 
 /* Handlebars Layouts */
 app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts'}));
