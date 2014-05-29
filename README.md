@@ -56,3 +56,4 @@
 	- http://sinonjs.org/
 - more testing: https://github.com/visionmedia/express/tree/master/test
 - validation in Session.js when the mongod instance is down (?)
+- https://www.npmjs.org/package/grunt-w3c-validation
