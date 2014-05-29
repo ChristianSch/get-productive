@@ -23,6 +23,6 @@
 		"chai": "~1.9.1"
 	},
 	"scripts": {
-		"test": "export NODE_ENV=test && ./node_modules/mocha/bin/mocha"
+		"test": "env NODE_ENV=test ./node_modules/mocha/bin/mocha"
 	}
 }
