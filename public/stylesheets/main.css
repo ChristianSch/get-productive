@@ -6,8 +6,6 @@ html, body {
   display: block;
   min-height: 100%;
   /* sticky footer */
-  height: auto !important;
-  /* sticky footer */
   height: 100%;
   /* sticky footer */
   margin: 0 auto -171px;

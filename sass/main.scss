@@ -8,7 +8,6 @@ html, body {
 .main-wrap {
 	display: block;
 	min-height: 100%; /* sticky footer */
-	height: auto !important; /* sticky footer */
 	height: 100%; /* sticky footer */
 	margin: 0 auto -171px; /* -130px height, 40px margin, 1px border: sticky footer */
 	max-width: 960px;
