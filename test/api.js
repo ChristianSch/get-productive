@@ -1,7 +1,7 @@
 var request = require('supertest'),
     express = require('express');
 
-var app = express();
+var app = require('../app').app;
 
 /*
 describe('POST /api/add_session', function() {
@@ -16,10 +16,10 @@ describe('POST /api/add_session', function() {
     });
 });*/
 
-/*describe('GET /api/list_sessions', function() {
+describe('GET /api/list_sessions', function() {
     it('response with valid JSON', function(done) {
         request(app)
         .get('/api/list_sessions')
         .expect(200, done);
     });
-});*/
+});

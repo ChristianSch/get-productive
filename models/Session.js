@@ -33,8 +33,13 @@ function addSession(start_time, end_time, callback) {
             callback(err);
 
         } else {
-            db.collection('sessions').insert({ start: start_time, end: end_time },
-                function(err, records) { callback(err); }
+            db.collection('sessions').insert({
+                    start: start_time,
+                    end: end_time
+                },
+                function(err, records) {
+                    callback(err);
+                }
             );
         }
     });
