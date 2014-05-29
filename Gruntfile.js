@@ -5,6 +5,7 @@ module.exports = function(grunt) {
             scss: './sass',
             css: './public/stylesheets/',
         },
+
         jshint: {
             src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js']
         },
@@ -33,6 +34,10 @@ module.exports = function(grunt) {
             sass: {
                 files: './sass/**/*.scss',
                 tasks: ['sass:admin']
+            },
+            js: {
+                files: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js'],
+                tasks: ['jshint']
             }
         }
     });
