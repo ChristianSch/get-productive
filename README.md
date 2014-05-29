@@ -26,7 +26,6 @@
 		- database (x)
 		- validate html + css
 - mongodb url in config depending on evironment `process.env.NODE_ENV`, `process.env.MONGODB_URL` (x)
-- validation in Session.js when the mongod instance is down (?)
 
 ### 2nd Milestone
 - group sessions after date
@@ -56,3 +55,4 @@
 	- chai?
 	- http://sinonjs.org/
 - more testing: https://github.com/visionmedia/express/tree/master/test
+- validation in Session.js when the mongod instance is down (?)
