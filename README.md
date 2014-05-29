@@ -20,16 +20,17 @@
 	
 #### 1.1
 - Backend:
-	- testing
+	- testing (x)
 		- lib (time.js) (x)
-		- api
+		- api (x)
+		- database (x)
 	- organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
 		- ('/api') as module?
 - mongodb url in config depending on evironment `process.env.NODE_ENV`, `process.env.MONGODB_URL` (x)
 - validation in Session.js when the mongod instance is down (?)
 
 ### 2nd Milestone
-- AJAXify all POST and GET requests that do not load another view
+- AJAXify all POST and GET requests that do not load another view (?)
 - beatify alerts to modal windows or something like that
 - User support
 	- validation of data submitted by a form (user/mail exists etc.)
