@@ -1,5 +1,5 @@
 var assert = require('chai').assert,
-expect = require('chai').expect;
+	expect = require('chai').expect;
 var timeLib = require('../public/js/lib/time.js');
 
 describe('isValidDate', function() {
@@ -30,19 +30,66 @@ describe('normalizeTimestamp', function() {
 
 describe('minuteDiffWithStamps', function() {
 	var timestamp = new Date().getTime();
+	var fail = false;
+
+	afterEach(function() {
+		if (fail) {
+			console.log("data from failed test:");
+			console.log("timestamp:\n\t" + timestamp);
+			console.log("timestamp - 5 min:\n\t" + timestamp - (5 * 60 * 1000));
+
+			console.log("timestamp in minutes:\n\t" + new Date(timestamp).getMinutes());
+			console.log("timestamp - 5 min in minutes:\n\t" + new Date(timestamp - (5 * 60 * 1000)).getMinutes());
+		}
+	});
+
+	beforeEach(function() {
+		fail = true;
+	});
+
+	it ('should be a valid timestamp', function() {
+		assert.isTrue(timeLib.isValidDate(new Date(timestamp - (5 * 60 * 1000))));
+		fail = false;
+	});
 
 	it('should return 5', function() {
 		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp - (5 * 60 * 1000))).to.equal(5);
-	});
-	it('should return 5', function() {
+		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp + (5 * 60 * 1000))).to.equal(5);
 		expect(timeLib.minuteDiffWithStamps(timestamp - (5 * 60 * 1000), timestamp)).to.equal(5);
+		expect(timeLib.minuteDiffWithStamps(timestamp + (5 * 60 * 1000), timestamp)).to.equal(5);
+		fail = false;
 	});
+
+	it('should return 0', function() {
+		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp)).to.equal(0);
+		fail = false;
+	});
+
+	it('should return 60', function() {
+		expect(timeLib.minuteDiffWithStamps(timestamp - (60 * 60 * 1000), timestamp)).to.equal(60);
+		expect(timeLib.minuteDiffWithStamps(timestamp + (60 * 60 * 1000), timestamp)).to.equal(60);
+		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp - (60 * 60 * 1000))).to.equal(60);
+		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp + (60 * 60 * 1000))).to.equal(60);
+		fail = false;
+	});
+
+	it('should return 120', function() {
+		expect(timeLib.minuteDiffWithStamps(timestamp - (120 * 60 * 1000), timestamp)).to.equal(120);
+		expect(timeLib.minuteDiffWithStamps(timestamp + (120 * 60 * 1000), timestamp)).to.equal(120);
+		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp - (120 * 60 * 1000))).to.equal(120);
+		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp + (120 * 60 * 1000))).to.equal(120);
+		fail = false;
+	});
+
 	it('should equal', function() {
 		assert.equal(timeLib.minuteDiffWithStamps(timestamp - (5 * 60 * 1000), timestamp),
 			timeLib.minuteDiffWithStamps(timestamp, timestamp - (5 * 60 * 1000)));
-	});
-	it('should return 0', function() {
-		expect(timeLib.minuteDiffWithStamps(timestamp, timestamp)).to.equal(0);
+		assert.equal(timeLib.minuteDiffWithStamps(timestamp - (5 * 60 * 1000), timestamp),
+			timeLib.minuteDiffWithStamps(timestamp, timestamp + (5 * 60 * 1000)));
+		assert.equal(timeLib.minuteDiffWithStamps(timestamp + (5 * 60 * 1000), timestamp),
+			timeLib.minuteDiffWithStamps(timestamp, timestamp - (5 * 60 * 1000)));
+
+		fail = false;
 	});
 });
 
