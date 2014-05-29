@@ -10,7 +10,9 @@ function normalizeTimestamp(stamp) {
     var hasLength = stamp.toString().length;
     var out;
 
-    if (requiredLength == hasLength) { return stamp; }
+    if (requiredLength == hasLength) {
+        return stamp;
+    }
 
     return Math.abs(parseInt(stamp * (10 ^ (requiredLength - hasLength))));
 }
@@ -19,7 +21,7 @@ function normalizeTimestamp(stamp) {
  * [isValidDate description]
  *
  * @see  http://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
- * 
+ *
  * @param  {[type]}  d [description]
  * @return {Boolean}   [description]
  */
@@ -49,11 +51,11 @@ function dateWithStamp(stamp) {
     return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
 }
 
-(function (exports) {
+(function(exports) {
     exports.minuteDiffWithStamps = minuteDiffWithStamps;
     exports.hoursAndMinutesWithStamp = hoursAndMinutesWithStamp;
     exports.dateWithStamp = dateWithStamp;
     exports.normalizeMinutes = normalizeMinutes;
     exports.normalizeTimestamp = normalizeTimestamp;
     exports.isValidDate = isValidDate;
-} (typeof exports === 'undefined' ? this.shared = {} : exports));
+}(typeof exports === 'undefined' ? this.shared = {} : exports));

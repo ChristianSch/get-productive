@@ -1,5 +1,5 @@
 var express = require('express'),
-    exphbs  = require('express3-handlebars'),
+    exphbs = require('express3-handlebars'),
     path = require('path'),
     timeLib = require(__dirname + '/public/js/lib/time.js');
 
@@ -8,7 +8,10 @@ var Session = require(__dirname + '/models/Session.js')(process.env.MONGODB_URI,
 var app = exports.app = express();
 
 /* Handlebars Layouts */
-app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts'}));
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+    layoutsDir: __dirname + '/views/layouts'
+}));
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
 
@@ -22,8 +25,10 @@ app.use("/public", express.static(__dirname + '/public'));
 app.use(express.urlencoded());
 
 /* routes */
-app.get('/', function (req, res) {
-    res.render('home', { title: 'Get Productive!'});
+app.get('/', function(req, res) {
+    res.render('home', {
+        title: 'Get Productive!'
+    });
 });
 /* >>>>> API <<<<< */
 app.post('/api/add_session', function(req, res) {
@@ -57,7 +62,7 @@ app.get('/api/list_sessions', function(req, res) {
 
         } else {
             res.statusCode = 200;
-        res.send(items);
+            res.send(items);
         }
     });
 });
@@ -69,33 +74,39 @@ app.get('/404', function(req, res, next) {
     // trigger a 404 since no other middleware
     // will match /404 after this one, and we're not
     // responding here
-  next();
+    next();
 });
 
-app.get('/403', function(req, res, next){
+app.get('/403', function(req, res, next) {
     // trigger a 403 error
     var err = new Error('not allowed!');
     err.status = 403;
     next(err);
 });
 
-app.get('/500', function(req, res, next){
+app.get('/500', function(req, res, next) {
     // trigger a generic (500) error
     next(new Error('keyboard cat!'));
 });
 
-app.use(function(req, res, next){
+app.use(function(req, res, next) {
     res.status(404);
 
     // respond with html page
     if (req.accepts('html')) {
-        res.render('error', { title: "404 - Not found", error: "Not found: '" + req.url + "'.", error_num: 404 });
+        res.render('error', {
+            title: "404 - Not found",
+            error: "Not found: '" + req.url + "'.",
+            error_num: 404
+        });
         return;
     }
 
     // respond with json
     if (req.accepts('json')) {
-       res.send({ error: 'Not found: ' + req.url });
+        res.send({
+            error: 'Not found: ' + req.url
+        });
         return;
     }
 
@@ -115,12 +126,15 @@ app.use(function(req, res, next){
 // would remain being executed, however here
 // we simply respond with an error page.
 
-app.use(function(err, req, res, next){
+app.use(function(err, req, res, next) {
     // we may use properties of the error object
     // here and next(err) appropriately, or if
     // we possibly recovered from the error, simply next().
     res.status(err.status || 500);
-    res.render('error', { error: err, error_num: 500 });
+    res.render('error', {
+        error: err,
+        error_num: 500
+    });
 });
 
 

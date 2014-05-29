@@ -12,7 +12,7 @@ var endStamp = 0;
 
 var debug = false;
 
-$( document ).ready(function() {
+$(document).ready(function() {
     document.getElementById('startTimerButton').onclick = startTimer;
     document.getElementById('stopTimerButton').onclick = stopTimer;
     document.getElementById('resetTimerButton').onclick = resetTimer;
@@ -92,7 +92,10 @@ function postNewSession(startTime, endTime) {
         type: "POST",
         url: "/api/add_session",
         dataType: "json",
-        data: { start: startTime, end: endTime }
+        data: {
+            start: startTime,
+            end: endTime
+        }
 
     }).done(function(response) {
         sessionIsSaved = true;
