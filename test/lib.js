@@ -62,6 +62,7 @@ describe('minuteDiffWithStamps', function() {
 
     it('should return 0', function() {
         expect(timeLib.minuteDiffWithStamps(timestamp, timestamp)).to.equal(0);
+        expect(timeLib.minuteDiffWithStamps(timestamp ,timestamp + 1 * 1000)).to.equal(0);
         expect(timeLib.minuteDiffWithStamps(timestamp ,timestamp + 10 * 1000)).to.equal(0);
         expect(timeLib.minuteDiffWithStamps(timestamp ,timestamp + 59 * 1000)).to.equal(0);
         fail = false;
