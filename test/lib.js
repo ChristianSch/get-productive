@@ -36,10 +36,6 @@ describe('minuteDiffWithStamps', function() {
         if (fail) {
             console.log("data from failed test:");
             console.log("timestamp:\n\t" + timestamp);
-            console.log("timestamp - 5 min:\n\t" + timestamp - (5 * 60 * 1000));
-
-            console.log("timestamp in minutes:\n\t" + new Date(timestamp).getMinutes());
-            console.log("timestamp - 5 min in minutes:\n\t" + new Date(timestamp - (5 * 60 * 1000)).getMinutes());
         }
     });
 
@@ -62,6 +58,9 @@ describe('minuteDiffWithStamps', function() {
 
     it('should return 0', function() {
         expect(timeLib.minuteDiffWithStamps(timestamp, timestamp)).to.equal(0);
+        expect(timeLib.minuteDiffWithStamps(timestamp, timestamp + 1 * 1000)).to.equal(0);
+        expect(timeLib.minuteDiffWithStamps(timestamp, timestamp + 10 * 1000)).to.equal(0);
+        expect(timeLib.minuteDiffWithStamps(timestamp, timestamp + 59 * 1000)).to.equal(0);
         fail = false;
     });
 

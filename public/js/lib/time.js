@@ -36,7 +36,7 @@ function minuteDiffWithStamps(stamp1, stamp2) {
     var date1 = new Date(normalizeTimestamp(stamp1)).getTime();
     var date2 = new Date(normalizeTimestamp(stamp2)).getTime();
 
-    return Math.abs(date1 - date2) / 60000;
+    return Math.floor(Math.abs(date1 - date2) / 60000);
 }
 
 function hoursAndMinutesWithStamp(stamp) {
