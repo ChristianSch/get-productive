@@ -24,21 +24,21 @@
 		- lib (time.js) (x)
 		- api (x)
 		- database (x)
-		- validate html + css
+		- validate html + css (x)
 - mongodb url in config depending on evironment `process.env.NODE_ENV`, `process.env.MONGODB_URL` (x)
 
 ### 2nd Milestone
-- group sessions after date
-- AJAXify all POST and GET requests that do not load another view (?)
-- beatify alerts to modal windows or something like that
-- add graph: highchars.js for punchcard (http://jsfiddle.net/KmPJE/1/) + add /api
-- organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
-	- ('/api') as module?
 - User support
 	- validation of data submitted by a form (user/mail exists etc.)
 	- passport support (https://github.com/jaredhanson/passport)
 		- app.net (https://www.npmjs.org/package/passport-appdotnet)
 		- google
+- group sessions after date, paginate
+- display badges in a notification_area instead of alerts
+- AJAXify all POST and GET requests that do not load another view (?)
+- add graph: highcharts.js for punchcard (http://jsfiddle.net/KmPJE/1/) + add /api
+- organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
+	- ('/api') as module?
 
 ### 3rd Milestone
 - Frontend
