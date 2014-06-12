@@ -1,0 +1,16 @@
+.timer {
+	margin: 1em;
+	
+	.timerHours, .timerMinutes {
+		font-size: 10em;
+	}
+
+	.timerSeconds {
+		font-size: 3em;
+	}
+
+	.timerUnits {
+		font-size: 0.5em;
+	}
+
+}
