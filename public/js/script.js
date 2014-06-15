@@ -125,9 +125,9 @@ function saveSession() {
 }
 
 function redrawTime() {
-    document.getElementById('timerHours').innerHTML = timerHours;
-    document.getElementById('timerMinutes').innerHTML = normalizeMinutes(timerMinutes);
-    document.getElementById('timerSeconds').innerHTML = normalizeMinutes(timerSeconds);
+    $('#timerHours').html(timerHours);
+    $('#timerMinutes').html(normalizeMinutes(timerMinutes));
+    $('#timerSeconds').html(normalizeMinutes(timerSeconds));
 }
 
 /* list sessions */
