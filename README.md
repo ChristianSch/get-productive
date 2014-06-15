@@ -38,7 +38,7 @@
 - AJAXify all POST and GET requests that do not load another view (?)
 - add graph: highcharts.js for punchcard (http://jsfiddle.net/KmPJE/1/) + add /api
 - organize routing of sub-pages ('/routes') -> http://openmymind.net/NodeJS-Module-Exports-And-Organizing-Express-Routes/
-	- ('/api') as module?
+	- ('/api') as module? (x)
 
 ### 3rd Milestone
 - Frontend
