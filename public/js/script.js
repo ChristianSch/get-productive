@@ -177,7 +177,7 @@ function listSessions() {
             content = '<div class="alert alert-warning">No sessions! Try adding one now.</div>';
         }
 
-        document.getElementById('session-list').innerHTML = content;
+        $('#session-list').html(content);
 
     }).fail(function(response) {
         if (debug) console.log(response.responseText);
