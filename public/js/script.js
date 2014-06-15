@@ -140,6 +140,7 @@ function listSessions() {
         var sessionCount = response.length;
         var i = 0;
         var content = "";
+        var id = 0;
         var startStamp = 0;
         var endStamp = 0;
 
@@ -147,10 +148,11 @@ function listSessions() {
             content += '<ul class="list-group">';
 
             for (i = 0; i < sessionCount; i++) {
+                id = response[i]._id;
                 startStamp = parseInt(response[i].start);
                 endStamp = parseInt(response[i].end);
 
-                content += '<li class="list-group-item">';
+                content += '<li id="' + id + '" class="list-group-item">';
 
                 content += '<b>' + minuteDiffWithStamps(startStamp, endStamp) + ' min</b>';
 
