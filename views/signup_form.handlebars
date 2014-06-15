@@ -1,0 +1,24 @@
+<form class="navbar-form navbar-left" method="POST" action="/signup">
+<input type="hidden" name="step" value="1">
+
+	<div class="form-group">  
+		{{ mail_error }}
+
+		<div class="input-group">
+			<span class="input-group-addon">Mail</span>
+			<input type="text" class="form-control" name="mail" value="{{ mail_adress }}">
+		</div>
+
+		<div class="input-group">
+			<span class="input-group-addon">Username</span>
+			<input type="text" class="form-control" name="user" value="{{ username }}">
+		</div>
+
+		<div class="input-group">
+			<span class="input-group-addon">Password</span>
+			<input type="password" class="form-control" name="pass" value="">
+		</div>
+
+		<button type="submit" class="btn btn-default">Submit</button>
+	</div>
+</form>
