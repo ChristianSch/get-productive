@@ -11,17 +11,24 @@ app.engine('handlebars', exphbs({
     partialsDir: __dirname + '/views/partials'
 }));
 
-app.set('view engine', 'handlebars');
-app.set('views', __dirname + '/views');
+app.configure(function() {
+    /* Set handlebars as view engine */
+    app.set('view engine', 'handlebars');
+    app.set('views', __dirname + '/views');
 
-/* Caching in productive environment */
-app.enable('view cache');
+    /* use cookie parser middleware, needed for auth */
+    app.use(express.cookieParser());
 
-/* static stuff like css, js with static middleware */
-app.use("/public", express.static(__dirname + '/public'));
+    /* form data parsing from post request */
+    app.use(express.urlencoded());
 
-/* form data parsing from post request */
-app.use(express.urlencoded());
+    /* Caching in productive environment */
+    app.enable('view cache');
+
+    /* static stuff like css, js with static middleware */
+    app.use("/public", express.static(__dirname + '/public'));
+
+});
 
 /* routes */
 app.get('/', function(req, res) {
