@@ -1,9 +1,6 @@
 var express = require('express'),
     exphbs = require('express3-handlebars'),
-    path = require('path'),
-    timeLib = require(__dirname + '/public/js/lib/time.js');
-
-var Session = require(__dirname + '/models/Session.js')(process.env.MONGODB_URI, "get-productive");
+    path = require('path');
 
 var app = exports.app = express();
 
@@ -14,17 +11,24 @@ app.engine('handlebars', exphbs({
     partialsDir: __dirname + '/views/partials'
 }));
 
-app.set('view engine', 'handlebars');
-app.set('views', __dirname + '/views');
+app.configure(function() {
+    /* Set handlebars as view engine */
+    app.set('view engine', 'handlebars');
+    app.set('views', __dirname + '/views');
 
-/* Caching in productive environment */
-app.enable('view cache');
+    /* use cookie parser middleware, needed for auth */
+    app.use(express.cookieParser());
 
-/* static stuff like css, js with static middleware */
-app.use("/public", express.static(__dirname + '/public'));
+    /* form data parsing from post request */
+    app.use(express.urlencoded());
 
-/* form data parsing from post request */
-app.use(express.urlencoded());
+    /* Caching in productive environment */
+    app.enable('view cache');
+
+    /* static stuff like css, js with static middleware */
+    app.use("/public", express.static(__dirname + '/public'));
+
+});
 
 /* routes */
 app.get('/', function(req, res) {
@@ -32,42 +36,10 @@ app.get('/', function(req, res) {
         title: 'Get Productive!'
     });
 });
-/* >>>>> API <<<<< */
-app.post('/api/add_session', function(req, res) {
-    var start = req.param('start');
-    var end = req.param('end');
 
-    if (timeLib.isValidDate(new Date(parseInt(start))) &&
-        timeLib.isValidDate(new Date(parseInt(end)))) {
-        Session.addSession(start, end, function(err) {
-            if (err) {
-                console.log(err);
-                res.statusCode = 500;
-
-            } else {
-                res.statusCode = 200;
-                res.send(req.body);
-            }
-        });
-
-    } else {
-        res.statusCode = 400;
-        res.send("Invalid time");
-    }
-});
-
-app.get('/api/list_sessions', function(req, res) {
-    Session.listSessions(function(err, items) {
-        if (err) {
-            res.statusCode = 500;
-            console.log(err.message);
-
-        } else {
-            res.statusCode = 200;
-            res.send(items);
-        }
-    });
-});
+/* api */
+var api = require('./lib/api');
+app.use(api);
 
 /* >>>>> error handling <<<<< */
 // see: https://github.com/visionmedia/express/blob/master/examples/error-pages/index.js
@@ -138,6 +110,5 @@ app.use(function(err, req, res, next) {
         error_num: 500
     });
 });
-
 
 app.listen(7600);

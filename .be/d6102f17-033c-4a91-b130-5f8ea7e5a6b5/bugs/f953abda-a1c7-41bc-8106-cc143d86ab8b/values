@@ -1,0 +1,50 @@
+{
+
+
+
+
+
+
+    "creator": "Christian Schulze <christian.schulze@mni.thm.de>", 
+
+
+
+
+
+
+    "reporter": "Christian Schulze <christian.schulze@mni.thm.de>", 
+
+
+
+
+
+
+    "severity": "minor", 
+
+
+
+
+
+
+    "status": "open", 
+
+
+
+
+
+
+    "summary": "[Error] TypeError: null is not a function (evaluating 'alert('Already saved. Don\\'t panic.')')", 
+
+
+
+
+
+
+    "time": "Sun, 15 Jun 2014 18:31:30 +0000"
+
+
+
+
+
+
+}

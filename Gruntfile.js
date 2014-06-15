@@ -4,18 +4,19 @@ module.exports = function(grunt) {
         paths: {
             scss: './sass',
             css: './public/stylesheets/',
+            js: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js', 'test/*.js', 'lib/**/*.js']
         },
 
         jshint: {
-            src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js']
+            src: '<%= paths.js %>'
         },
 
         jsbeautifier: {
             beautify: {
-                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js', 'test/*.js']
+                src: '<%= paths.js %>'
             },
             check: {
-                src: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js', 'test/*.js'],
+                src: '<%= paths.js %>',
                 options: {
                     mode: 'VERIFY_ONLY'
                 }
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
                 tasks: ['sass:admin']
             },
             js: {
-                files: ['*.js', 'models/*', 'public/js/*.js', 'public/js/lib/*.js', 'test/*.js'],
+                files: '<%= paths.js %>',
                 tasks: ['jshint']
             }
         }

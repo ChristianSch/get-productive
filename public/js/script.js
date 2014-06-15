@@ -125,20 +125,38 @@ function saveSession() {
 }
 
 function redrawTime() {
-    document.getElementById('timerHours').innerHTML = timerHours;
-    document.getElementById('timerMinutes').innerHTML = normalizeMinutes(timerMinutes);
-    document.getElementById('timerSeconds').innerHTML = normalizeMinutes(timerSeconds);
+    $('#timerHours').html(timerHours);
+    $('#timerMinutes').html(normalizeMinutes(timerMinutes));
+    $('#timerSeconds').html(normalizeMinutes(timerSeconds));
 }
 
 /* list sessions */
 function listSessions() {
+    var spinnerMarkup = '<img src="/public/images/loader.gif" alt="" class="ajax-loader">';
+    var noSessionsWarningMarkup = '<div class="alert alert-warning">No sessions! Try adding one now.</div>';
+    var errorMarkup = '<div class="alert alert-danger">Sorry! There was an error while refreshing the data. Please try again later.</div>';
+    /*
+        Display the spinner to indicate that something is going on.
+        Either there is old content that should not be overwritten
+        or the spinner is the only content to display right now.
+     */
+    if (!$('#session-list').children().hasClass('list-group')) {
+        // Don't replace actual content with the spinner
+        $('#session-list').html(spinnerMarkup);
+    } else {
+        var oldContent = $('#session-list').html();
+        $('#session-list').html(spinnerMarkup + oldContent);
+    }
+
     var jqxhr = $.ajax({
         type: "GET",
-        url: "/api/list_sessions"
+        url: "/api/list_sessions",
+        timeout: 5 * 1000 // 20s timeout
     }).done(function(response) {
         var sessionCount = response.length;
         var i = 0;
         var content = "";
+        var id = 0;
         var startStamp = 0;
         var endStamp = 0;
 
@@ -146,10 +164,11 @@ function listSessions() {
             content += '<ul class="list-group">';
 
             for (i = 0; i < sessionCount; i++) {
+                id = response[i]._id;
                 startStamp = parseInt(response[i].start);
                 endStamp = parseInt(response[i].end);
 
-                content += '<li class="list-group-item">';
+                content += '<li id="' + id + '" class="list-group-item">';
 
                 content += '<b>' + minuteDiffWithStamps(startStamp, endStamp) + ' min</b>';
 
@@ -171,12 +190,24 @@ function listSessions() {
             content += '</ul>';
 
         } else {
-            content = '<div class="alert alert-warning">No sessions! Try adding one now.</div>';
+            content = noSessionsWarningMarkup;
         }
 
-        document.getElementById('session-list').innerHTML = content;
+        $('#session-list').html(content);
 
     }).fail(function(response) {
         if (debug) console.log(response.responseText);
+
+        if (!$('#session-list').children().hasClass('list-group')) {
+            $('#session-list').html(errorMarkup);
+
+        } else {
+            var oldContent = $('#session-list').html();
+            $('#session-list').html(errorMarkup + oldContent);
+        }
+
+        /* Now the spinner needs to be removed. Note that if there is no childen with
+        class 'ajax-loader', nothing gets removed at all. */
+        $('#session-list').children('.ajax-loader').remove();
     });
 }
