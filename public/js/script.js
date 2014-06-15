@@ -134,7 +134,8 @@ function redrawTime() {
 function listSessions() {
     var jqxhr = $.ajax({
         type: "GET",
-        url: "/api/list_sessions"
+        url: "/api/list_sessions",
+        timeout: 5 * 1000 // 20s timeout
     }).done(function(response) {
         var sessionCount = response.length;
         var i = 0;
