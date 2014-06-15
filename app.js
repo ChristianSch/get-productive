@@ -31,7 +31,7 @@ app.get('/', function(req, res) {
 });
 
 /* api */
-var api = require('./lib/api')
+var api = require('./lib/api');
 app.use(api);
 
 /* >>>>> error handling <<<<< */
