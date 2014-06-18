@@ -2,7 +2,7 @@ var request = require('supertest'),
     express = require('express'),
     w3c = require('w3c-validate').createValidator();
 
-var app = require('../app').app;
+var app = require(process.env.NODE_PATH + "").app;
 
 describe('validation of "/"', function() {
     it('should not have html errors', function(done) {
