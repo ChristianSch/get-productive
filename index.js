@@ -19,7 +19,8 @@ app.configure(function() {
     /* use cookie parser middleware, needed for auth */
     app.use(express.cookieParser());
 
-    /* form data parsing from post request */
+    /* form data parsing from POST request */
+    app.use(express.json()); /* JSON bodies */
     app.use(express.urlencoded());
 
     /* Caching in productive environment */
