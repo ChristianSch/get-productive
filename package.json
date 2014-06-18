@@ -1,26 +1,28 @@
 {
-	"name" : "get-productive",
-	"description" : "find your most productive time of the day",
-	"version" : "0.0.1",
-	"private" : "true",
-	"dependencies" : {
-		"express" : "3.x",
-		"express3-handlebars" : "0.5.0",
-		"mongodb": "*"
-	},
-	"devDependencies": {
-		"grunt": "~0.4.1",
-		"grunt-sass": "~0.11.0",
-		"grunt-contrib-watch": "~0.5.0",
-		"grunt-contrib-jshint": "~0.10.0",
-		"grunt-jsbeautifier": "*",
-		"mocha": "~1.19.0",
-		"mocha-csslint": "~0.0.4",
-		"mocha-jshint": "~0.0.7",
-		"mocha-steps": "~0.0.1",
-		"mocha-mongo": "~0.1.1",
-		"supertest": "~0.13.0",
-		"chai": "~1.9.1",
-		"w3c-validate": "*"
-	}
+  "name": "get-productive",
+  "description": "find your most productive time of the day",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "express": "3.x",
+    "express3-handlebars": "0.5.0",
+    "mongodb": "*",
+    "mongoose": "^3.8.12"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-sass": "~0.11.0",
+    "grunt-contrib-watch": "~0.5.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jsbeautifier": "*",
+    "mocha": "~1.19.0",
+    "mocha-csslint": "~0.0.4",
+    "mocha-jshint": "~0.0.7",
+    "mocha-steps": "~0.0.1",
+    "mocha-mongo": "~0.1.1",
+    "supertest": "~0.13.0",
+    "chai": "~1.9.1",
+    "w3c-validate": "*"
+  }
 }
