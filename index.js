@@ -1,6 +1,7 @@
 var express = require('express'),
     exphbs = require('express3-handlebars'),
-    path = require('path');
+    path = require('path'),
+    mongoose = require('mongoose');
 
 var app = exports.app = express();
 
@@ -30,6 +31,8 @@ app.configure(function() {
     app.use("/public", express.static(__dirname + '/public'));
 
 });
+
+mongoose.connect(process.env.DB_URI); // connect to our database
 
 /* routes */
 app.get('/', function(req, res) {
