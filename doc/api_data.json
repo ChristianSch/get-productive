@@ -6,15 +6,22 @@
     "name": "DeleteUser",
     "group": "User",
     "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "Users unique id."
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "200 OK": [
-          {
-            "group": "200",
-            "field": "User",
-            "optional": false,
-            "description": "was deleted"
-          },
           {
             "group": "200",
             "type": "String",
@@ -51,19 +58,6 @@
           "content": "   HTTP/1.1 200 OK\n   {\n       \"_id\": \"539f4ec4debc120000dd9ab6\",\n       \"local\": {\n           \"name\": \"JohnDoe\",\n           \"mail\": \"foobar@dieter.de\"\n       }\n   }\n"
         }
       ]
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "field": "id",
-            "optional": false,
-            "description": "Users unique id."
-          }
-        ]
-      }
     },
     "error": {
       "fields": {
@@ -147,6 +141,14 @@
     },
     "error": {
       "fields": {
+        "422 Unprocessable Entity": [
+          {
+            "group": "422",
+            "field": "NoValidID",
+            "optional": false,
+            "description": "ID is not valid"
+          }
+        ],
         "404 Not Found": [
           {
             "group": "404 Not Found",
@@ -157,6 +159,10 @@
         ]
       },
       "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "   HTTP/1.1 422 Unprocessable Entity\n   {\n       \"error\": \"NoValidID\"\n   }\n"
+        },
         {
           "title": "Error-Response:",
           "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n"
@@ -172,15 +178,36 @@
     "name": "PostUser",
     "group": "User",
     "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "Name of user"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "mail",
+            "optional": false,
+            "description": "Mail address of user"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "password",
+            "optional": false,
+            "description": "Cleartext password of user"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "201 Created": [
-          {
-            "group": "201",
-            "field": "New",
-            "optional": false,
-            "description": "user was created"
-          },
           {
             "group": "201",
             "type": "String",
