@@ -1,6 +1,6 @@
 var assert = require('chai').assert,
     expect = require('chai').expect;
-var timeLib = require('../public/js/lib/time.js');
+var timeLib = require(process.env.NODE_PATH + '/public/js/lib/time.js');
 
 describe('isValidDate', function() {
     it('should be true', function() {
