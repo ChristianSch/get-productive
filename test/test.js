@@ -14,7 +14,7 @@ var request = require('supertest'),
     assert = require('chai').assert,
     express = require('express'),
     mongo = require('mocha-mongo')(mongodb_uri + "/get-productive"),
-    app = require('../app').app;
+    app = require(process.env.NODE_PATH + "").app;
 
 var ready = mongo.ready();
 
