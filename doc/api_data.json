@@ -88,7 +88,7 @@
   {
     "type": "get",
     "url": "/api/v1/user/:id",
-    "title": "Request User information",
+    "title": "Request user information",
     "name": "GetUser",
     "group": "User",
     "version": "0.0.1",
@@ -253,7 +253,7 @@
   {
     "type": "put",
     "url": "/api/v1/user/:id",
-    "title": "Change User information",
+    "title": "Change user information",
     "name": "PutUser",
     "group": "User",
     "version": "0.0.1",
