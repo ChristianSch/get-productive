@@ -61,6 +61,14 @@
     },
     "error": {
       "fields": {
+        "422 Unprocessable Entity": [
+          {
+            "group": "422",
+            "field": "NoValidID",
+            "optional": false,
+            "description": "ID is not valid"
+          }
+        ],
         "404 Not Found": [
           {
             "group": "404 Not Found",
@@ -71,6 +79,10 @@
         ]
       },
       "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "   HTTP/1.1 422 Unprocessable Entity\n   {\n       \"error\": \"NoValidID\"\n   }\n"
+        },
         {
           "title": "Error-Response:",
           "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n"
