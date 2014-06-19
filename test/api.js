@@ -94,6 +94,15 @@ describe('GET /api/v1/user', function() {
                 done();
             });
     });
+    it('should return status 404', function(done) {
+        request(app)
+            .get('/api/v1/user/000000000000000000000000')
+            .expect(404)
+            .end(function(err, res) {
+                if (err) return done(err);
+                done();
+            });
+    });
     it('should return status 200', function(done) {
         request(app)
             .get('/api/v1/user/' + testUser.id)
