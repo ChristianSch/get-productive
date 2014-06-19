@@ -12,6 +12,7 @@ app.engine('handlebars', exphbs({
     partialsDir: __dirname + '/views/partials'
 }));
 
+/* Middleware setup */
 app.configure(function() {
     /* Set handlebars as view engine */
     app.set('view engine', 'handlebars');
@@ -29,25 +30,24 @@ app.configure(function() {
 
     /* static stuff like css, js with static middleware */
     app.use("/public", express.static(__dirname + '/public'));
-
 });
 
-mongoose.connect(process.env.DB_URI); // connect to our database
+/* Establish database connection */
+mongoose.connect(process.env.DB_URI);
 
-/* routes */
+/* Routes */
 app.get('/', function(req, res) {
     res.render('home', {
         title: 'Get Productive!'
     });
 });
 
-/* api */
+/* API */
 var api = require('./lib/api');
 app.use(api);
 
-/* >>>>> error handling <<<<< */
+/* Error handling */
 // see: https://github.com/visionmedia/express/blob/master/examples/error-pages/index.js
-
 app.get('/404', function(req, res, next) {
     // trigger a 404 since no other middleware
     // will match /404 after this one, and we're not
