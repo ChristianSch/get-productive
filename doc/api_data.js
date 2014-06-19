@@ -347,6 +347,14 @@ define({ api: [
             "description": "Missing data"
           }
         ],
+        "422 Unprocessable Entity": [
+          {
+            "group": "422",
+            "field": "NoValidID",
+            "optional": false,
+            "description": "ID is not valid"
+          }
+        ],
         "404 Not Found": [
           {
             "group": "404 Not Found",
@@ -360,6 +368,10 @@ define({ api: [
         {
           "title": "Error-Response:",
           "content": "   HTTP/1.1 400 Bad Request\n   {\n       \"error\": \"NotEnoughData\"\n   }\n"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "   HTTP/1.1 422 Unprocessable Entity\n   {\n       \"error\": \"NoValidID\"\n   }\n"
         },
         {
           "title": "Error-Response:",
