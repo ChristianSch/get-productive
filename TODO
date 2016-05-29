@@ -1,0 +1,5 @@
+* fix mongodb connections
+* add circular time progress animation
+* fix json routes
+* fix user management
+* session list not workinge
