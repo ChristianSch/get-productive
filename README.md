@@ -7,7 +7,7 @@ Basic time tracking works, though not quite pretty.**
 ## Starting
 run `env NODE_PATH=(pwd) node .` (fish shell, use `$(pwd)` for bash)
 
-![](scree.png)
+![](screen.png)
 
 ## Milestones
 ### 0th Milestone
