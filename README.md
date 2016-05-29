@@ -1,3 +1,11 @@
+# Get Productive!
+A simple time tracker in the form of a web app.
+
+**Note: this is an old project of mine and is currently not maintained.
+Basic time tracking works, though not quite pretty.**
+
+## Starting
+run `env NODE_PATH=(pwd) node .` (fish shell, use `$(pwd)` for bash)
 ## Milestones
 ### 0th Milestone
 - set up a basic project and directory structure
@@ -17,7 +25,7 @@
 - set up ci (x)
 	- testing (x)
 	- deployment (x)
-	
+
 #### 1.1
 - Backend:
 	- testing (x)
