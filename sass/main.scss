@@ -1,21 +1,27 @@
 @import "mixins";
 @import "timer"; /* stopwatch */
 
-html, body {
+body {
 	font-size: 14px;
 	height: 100%;
 }
 
+.wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0 auto -150px;
+}
+
 .main-wrap {
-	display: block;
-	min-height: 100%; /* sticky footer */
-	height: 100%; /* sticky footer */
-	margin: 0 auto -171px; /* -130px height, 40px margin, 1px border: sticky footer */
 	max-width: 960px;
 }
+
 .content-wrap {
 	display: block;
 	margin: 0 auto;
+	max-width: 960px;
 }
 
 /* general */
@@ -32,39 +38,29 @@ html, body {
 }
 
 .ajax-loader {
-	margin: 10em auto;
+	margin: 1em auto;
 	display: block;
+
 }
 
 /* tabs */
 .tab-pane > div {
 	margin: 1em auto;
 }
+
 /* links */
 a:link {
 	color: $link-color;
 }
-/* stopwatch */
-.timer {
-	margin: 1em;
-	
-	.timerHours, .timerMinutes {
-		font-size: 10em;
-	}
-
-	.timerSeconds {
-		font-size: 3em;
-	}
-
-	.timerUnits {
-		font-size: 0.5em;
-	}
-
-}
 
 /* main footer */
 .main-foot {
+	display: block;
+	height: 110px;
 	width: 100%;
+	position: absolute;
+	bottom: 0;
+	background-color: #f5f5f5;
 	margin: 40px 0 0 0;
 	padding-top: 40px;
 	padding-bottom: 40px;
