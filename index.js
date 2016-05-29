@@ -33,7 +33,29 @@ app.configure(function() {
 });
 
 /* Establish database connection */
-mongoose.connect(process.env.DB_URI);
+mongoose.connect(process.env.DB_URI || 'localhost');
+
+/* Mongoose events */
+mongoose.connection.on('connected', function() {
+    console.log('Mongoose connected to ' + process.env.DB_URI ||
+        'localhost:27017');
+});
+
+mongoose.connection.on('error', function(err) {
+    console.log('Mongoose experienced error: ' + err);
+});
+
+mongoose.connection.on('disconnected', function() {
+    console.log('Mongoose disconnected');
+});
+
+/* Mongoose disconnection on app termination */
+process.on('SIGINT', function() {
+    mongoose.connection.close(function() {
+        console.log('Mongoose is disconnecting due to app termination');
+        process.exit(0);
+    });
+});
 
 /* Routes */
 app.get('/', function(req, res) {
@@ -108,3 +130,5 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(7600);
+
+console.log('Listening on http://localhost:7600')
