@@ -6,6 +6,9 @@ Basic time tracking works, though not quite pretty.**
 
 ## Starting
 run `env NODE_PATH=(pwd) node .` (fish shell, use `$(pwd)` for bash)
+
+![](scree.png)
+
 ## Milestones
 ### 0th Milestone
 - set up a basic project and directory structure
